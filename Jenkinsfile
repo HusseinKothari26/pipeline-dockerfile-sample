@@ -9,5 +9,9 @@ pipeline {
         sh 'echo myCustomEnvVar = $myCustomEnvVar'
       }
     }
+    stage('SonarQube') {
+        steps.sonarAnalysis()
+        steps.sonarQualityGate()
+    }
   }
 }
